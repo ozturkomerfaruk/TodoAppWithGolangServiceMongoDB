@@ -12,6 +12,7 @@ import (
 	"omerfarukozturk.com/backend/models"
 )
 
+//go:generate mockgen -destination=../mocks/repository/mockTodoRepository.go -package=repository omerfarukozturk.com/backend/repository TodoRepository
 type TodoRepositoryDB struct {
 	TodoCollection *mongo.Collection
 }
