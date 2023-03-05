@@ -54,6 +54,8 @@ Mock'lama yapılması için şu satır yazılıyor. Detaylar kod satırında
 
 ```//go:generate mockgen -destination=../mocks/service/mockTodoservice.go -package=services omerfarukozturk.com/backend/services TodoService```
 
+Ayrıca Postman da yazılan API test için Postman Agent indirilmesi gerekmektedir.
+
 # iOS UIKit Tarafı
 
 ...
