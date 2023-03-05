@@ -7,6 +7,7 @@ import (
 	"omerfarukozturk.com/backend/repository"
 )
 
+//go:generate mockgen -destination=../mocks/service/mockTodoservice.go -package=services omerfarukozturk.com/backend/services TodoService
 type DefaultTodoService struct {
 	Repo repository.TodoRepository
 }
