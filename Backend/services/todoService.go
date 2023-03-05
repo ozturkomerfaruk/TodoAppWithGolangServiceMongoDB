@@ -32,7 +32,14 @@ func (t DefaultTodoService) TodoInsert(todo models.Todo) (*dto.TodoDTO, error) {
 		return &res, err
 	}
 
-	res = dto.TodoDTO{Status: result}
+	res = dto.TodoDTO{
+		Status: true,
+		//Todo:   todo,
+		ID:      todo.ID.Hex(),
+		Title:   todo.Title,
+		Content: todo.Content,
+	}
+
 	return &res, nil
 }
 
