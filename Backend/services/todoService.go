@@ -1,6 +1,7 @@
 package services
 
 import (
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"omerfarukozturk.com/backend/dto"
 	"omerfarukozturk.com/backend/models"
 	"omerfarukozturk.com/backend/repository"
@@ -12,7 +13,8 @@ type DefaultTodoService struct {
 
 type TodoService interface {
 	TodoInsert(todo models.Todo) (*dto.TodoDTO, error)
-	TodoGetAll()([]models.Todo, error)
+	TodoGetAll() ([]models.Todo, error)
+	TodoDelete(id primitive.ObjectID) (bool, error)
 }
 
 func (t DefaultTodoService) TodoInsert(todo models.Todo) (*dto.TodoDTO, error) {
@@ -33,12 +35,20 @@ func (t DefaultTodoService) TodoInsert(todo models.Todo) (*dto.TodoDTO, error) {
 	return &res, nil
 }
 
-func (t DefaultTodoService) TodoGetAll()([]models.Todo, error) {
+func (t DefaultTodoService) TodoGetAll() ([]models.Todo, error) {
 	result, err := t.Repo.GetAll()
 	if err != nil {
 		return nil, err
 	}
 	return result, nil
+}
+
+func (t DefaultTodoService) TodoDelete(id primitive.ObjectID) (bool, error) {
+	result, err := t.Repo.Delete(id)
+	if err != nil || !result {
+		return false, err
+	}
+	return true, nil
 }
 
 func NewTodoService(Repo repository.TodoRepository) DefaultTodoService {

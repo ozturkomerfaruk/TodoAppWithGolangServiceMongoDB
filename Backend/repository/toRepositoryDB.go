@@ -60,6 +60,17 @@ func (t TodoRepositoryDB) GetAll() ([]models.Todo, error) {
 	return todos, nil
 }
 
+func (t TodoRepositoryDB) Delete(id primitive.ObjectID) (bool, error) {
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+
+	result, err := t.TodoCollection.DeleteOne(ctx, bson.M{"id": id})
+	if err != nil || result.DeletedCount <= 0 {
+		return false, nil
+	}
+	return true, nil
+}
+
 func NewTodoRepositoryDb(dbClient *mongo.Collection) TodoRepositoryDB {
 	return TodoRepositoryDB{TodoCollection: dbClient}
 }
