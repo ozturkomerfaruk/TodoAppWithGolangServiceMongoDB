@@ -20,9 +20,18 @@ func (h TodoHandler) CreateTodo(c *fiber.Ctx) error {
 
 	result, err := h.Service.TodoInsert(todo)
 
-	if err != nil || result.Status == false {
+	if err != nil || !result.Status {
 		return err
 	}
 
 	return c.Status(http.StatusCreated).JSON(result)
+}
+
+func (h TodoHandler) GetAllTodo(c *fiber.Ctx) error {
+	result, err := h.Service.TodoGetAll()
+
+	if err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(err.Error())
+	}
+	return c.Status(http.StatusOK).JSON(result)
 }
