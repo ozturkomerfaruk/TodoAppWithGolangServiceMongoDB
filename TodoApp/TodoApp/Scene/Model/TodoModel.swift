@@ -1,5 +1,5 @@
 //
-//  todoModel.swift
+//  TodoModel.swift
 //  TodoApp
 //
 //  Created by Ömer Faruk Öztürk on 5.03.2023.
