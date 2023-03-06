@@ -1,5 +1,5 @@
 //
-//  TodoView.swift
+//  OnboardingView.swift
 //  TodoApp
 //
 //  Created by Ömer Faruk Öztürk on 5.03.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class OnboardingView: UIViewController {
     
     let gradientLayer = CAGradientLayer()
     
