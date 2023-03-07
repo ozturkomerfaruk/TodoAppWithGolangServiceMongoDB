@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		044A409A29B59FBE000ECE9D /* TodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A409929B59FBE000ECE9D /* TodoViewModel.swift */; };
+		044F859229B7446600D5E6D1 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F859029B7446600D5E6D1 /* CustomTableViewCell.swift */; };
+		044F859329B7446600D5E6D1 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044F859129B7446600D5E6D1 /* CustomTableViewCell.xib */; };
+		044F859629B7700A00D5E6D1 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F859429B7700A00D5E6D1 /* CustomCollectionViewCell.swift */; };
+		044F859729B7700A00D5E6D1 /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044F859529B7700A00D5E6D1 /* CustomCollectionViewCell.xib */; };
 		04B3F7F129B5197F002CD493 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3F7F029B5197F002CD493 /* AppDelegate.swift */; };
 		04B3F7F329B5197F002CD493 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3F7F229B5197F002CD493 /* SceneDelegate.swift */; };
 		04B3F7F529B5197F002CD493 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3F7F429B5197F002CD493 /* OnboardingView.swift */; };
@@ -46,6 +50,10 @@
 
 /* Begin PBXFileReference section */
 		044A409929B59FBE000ECE9D /* TodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewModel.swift; sourceTree = "<group>"; };
+		044F859029B7446600D5E6D1 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		044F859129B7446600D5E6D1 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		044F859429B7700A00D5E6D1 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		044F859529B7700A00D5E6D1 /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
 		04B3F7ED29B5197F002CD493 /* TodoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B3F7F029B5197F002CD493 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04B3F7F229B5197F002CD493 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -205,6 +213,10 @@
 			isa = PBXGroup;
 			children = (
 				04F1D47529B7024F005C3030 /* TabBarController.swift */,
+				044F859029B7446600D5E6D1 /* CustomTableViewCell.swift */,
+				044F859129B7446600D5E6D1 /* CustomTableViewCell.xib */,
+				044F859429B7700A00D5E6D1 /* CustomCollectionViewCell.swift */,
+				044F859529B7700A00D5E6D1 /* CustomCollectionViewCell.xib */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -321,6 +333,8 @@
 			files = (
 				04B3F7FA29B51980002CD493 /* Assets.xcassets in Resources */,
 				04B3F7F829B5197F002CD493 /* Main.storyboard in Resources */,
+				044F859329B7446600D5E6D1 /* CustomTableViewCell.xib in Resources */,
+				044F859729B7700A00D5E6D1 /* CustomCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04F1D47129B6FCF4005C3030 /* ProfilView.swift in Sources */,
+				044F859629B7700A00D5E6D1 /* CustomCollectionViewCell.swift in Sources */,
 				04B3F7F529B5197F002CD493 /* OnboardingView.swift in Sources */,
 				04B3F82E29B51C11002CD493 /* TodoModel.swift in Sources */,
 				04F1D46C29B6FA74005C3030 /* CreateNewTaskView.swift in Sources */,
@@ -357,6 +372,7 @@
 				04F1D47629B7024F005C3030 /* TabBarController.swift in Sources */,
 				04F1D46A29B6FA59005C3030 /* HomePageView.swift in Sources */,
 				04B3F82929B51AD9002CD493 /* Endpoint.swift in Sources */,
+				044F859229B7446600D5E6D1 /* CustomTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
