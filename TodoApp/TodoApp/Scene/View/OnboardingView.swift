@@ -37,5 +37,9 @@ final class OnboardingView: UIViewController {
     
     
     @IBAction func letsStartAction(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "tabBarController") as! UITabBarController
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .coverVertical
+        present(vc, animated: true, completion: nil)
     }
 }

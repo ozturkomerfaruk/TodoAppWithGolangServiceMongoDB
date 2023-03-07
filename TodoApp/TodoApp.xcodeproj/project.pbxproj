@@ -20,6 +20,11 @@
 		04B3F82729B51ABB002CD493 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3F82629B51ABB002CD493 /* Client.swift */; };
 		04B3F82929B51AD9002CD493 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3F82829B51AD9002CD493 /* Endpoint.swift */; };
 		04B3F82E29B51C11002CD493 /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3F82D29B51C11002CD493 /* TodoModel.swift */; };
+		04F1D46A29B6FA59005C3030 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1D46929B6FA59005C3030 /* HomePageView.swift */; };
+		04F1D46C29B6FA74005C3030 /* CreateNewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1D46B29B6FA74005C3030 /* CreateNewTaskView.swift */; };
+		04F1D46E29B6FA90005C3030 /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1D46D29B6FA90005C3030 /* TaskDetailView.swift */; };
+		04F1D47129B6FCF4005C3030 /* ProfilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1D47029B6FCF4005C3030 /* ProfilView.swift */; };
+		04F1D47629B7024F005C3030 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1D47529B7024F005C3030 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +61,11 @@
 		04B3F82629B51ABB002CD493 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		04B3F82829B51AD9002CD493 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		04B3F82D29B51C11002CD493 /* TodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
+		04F1D46929B6FA59005C3030 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
+		04F1D46B29B6FA74005C3030 /* CreateNewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewTaskView.swift; sourceTree = "<group>"; };
+		04F1D46D29B6FA90005C3030 /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
+		04F1D47029B6FCF4005C3030 /* ProfilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilView.swift; sourceTree = "<group>"; };
+		04F1D47529B7024F005C3030 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +105,12 @@
 		044A409829B59F9C000ECE9D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04F1D47229B701F1005C3030 /* Component */,
 				04B3F7F429B5197F002CD493 /* OnboardingView.swift */,
+				04F1D46929B6FA59005C3030 /* HomePageView.swift */,
+				04F1D46B29B6FA74005C3030 /* CreateNewTaskView.swift */,
+				04F1D46D29B6FA90005C3030 /* TaskDetailView.swift */,
+				04F1D47029B6FCF4005C3030 /* ProfilView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -184,6 +199,14 @@
 				04B3F82D29B51C11002CD493 /* TodoModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		04F1D47229B701F1005C3030 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				04F1D47529B7024F005C3030 /* TabBarController.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,12 +345,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F1D47129B6FCF4005C3030 /* ProfilView.swift in Sources */,
 				04B3F7F529B5197F002CD493 /* OnboardingView.swift in Sources */,
 				04B3F82E29B51C11002CD493 /* TodoModel.swift in Sources */,
+				04F1D46C29B6FA74005C3030 /* CreateNewTaskView.swift in Sources */,
 				04B3F7F129B5197F002CD493 /* AppDelegate.swift in Sources */,
+				04F1D46E29B6FA90005C3030 /* TaskDetailView.swift in Sources */,
 				04B3F82729B51ABB002CD493 /* Client.swift in Sources */,
 				04B3F7F329B5197F002CD493 /* SceneDelegate.swift in Sources */,
 				044A409A29B59FBE000ECE9D /* TodoViewModel.swift in Sources */,
+				04F1D47629B7024F005C3030 /* TabBarController.swift in Sources */,
+				04F1D46A29B6FA59005C3030 /* HomePageView.swift in Sources */,
 				04B3F82929B51AD9002CD493 /* Endpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
