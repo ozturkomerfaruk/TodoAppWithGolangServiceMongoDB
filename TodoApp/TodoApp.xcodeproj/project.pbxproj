@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041ABC0C29BA4E5000F2F321 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041ABC0B29BA4E5000F2F321 /* TextFieldExtension.swift */; };
 		044A409A29B59FBE000ECE9D /* TodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A409929B59FBE000ECE9D /* TodoViewModel.swift */; };
 		044F859229B7446600D5E6D1 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F859029B7446600D5E6D1 /* CustomTableViewCell.swift */; };
 		044F859329B7446600D5E6D1 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044F859129B7446600D5E6D1 /* CustomTableViewCell.xib */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		041ABC0B29BA4E5000F2F321 /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
 		044A409929B59FBE000ECE9D /* TodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewModel.swift; sourceTree = "<group>"; };
 		044F859029B7446600D5E6D1 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		044F859129B7446600D5E6D1 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
@@ -102,6 +104,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		041ABC0A29BA4E3D00F2F321 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				041ABC0B29BA4E5000F2F321 /* TextFieldExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		044A409729B59F94000ECE9D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +204,7 @@
 		04B3F82229B51A51002CD493 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				041ABC0A29BA4E3D00F2F321 /* Extension */,
 				044A409829B59F9C000ECE9D /* View */,
 				044A409729B59F94000ECE9D /* ViewModel */,
 				04B3F82C29B51B9C002CD493 /* Model */,
@@ -362,6 +373,7 @@
 				04F1D47129B6FCF4005C3030 /* ProfilView.swift in Sources */,
 				044F859629B7700A00D5E6D1 /* CustomCollectionViewCell.swift in Sources */,
 				04B3F7F529B5197F002CD493 /* OnboardingView.swift in Sources */,
+				041ABC0C29BA4E5000F2F321 /* TextFieldExtension.swift in Sources */,
 				04B3F82E29B51C11002CD493 /* TodoModel.swift in Sources */,
 				04F1D46C29B6FA74005C3030 /* CreateNewTaskView.swift in Sources */,
 				04B3F7F129B5197F002CD493 /* AppDelegate.swift in Sources */,
