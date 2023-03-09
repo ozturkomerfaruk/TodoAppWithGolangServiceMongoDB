@@ -16,10 +16,35 @@ class TabBarController: UITabBarController {
         self.tabBar.unselectedItemTintColor = UIColor.gray
         
         if let items = self.tabBar.items {
-            items[1].image = UIImage(named: "plus")?.withRenderingMode(.alwaysOriginal)
-            items[1].selectedImage = UIImage(named: "tab2")?.withRenderingMode(.alwaysOriginal)
-            items[1].setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.systemBlue], for: .selected)
-            items[1].setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.systemBlue], for: .normal)
+            let format = UIGraphicsImageRendererFormat()
+            format.scale = UIScreen.main.scale // Ekran ölçülerine göre ölçeklendirme yapar
+            let renderer = UIGraphicsImageRenderer(size: CGSize(width: 50, height: 50), format: format)
+            let circleImage = renderer.image { ctx in
+                let circleRect = CGRect(x: 0, y: 0, width: 50, height: 50)
+                ctx.cgContext.setStrokeColor(UIColor.blue.cgColor)
+                ctx.cgContext.setLineWidth(2)
+                ctx.cgContext.addEllipse(in: circleRect)
+                ctx.cgContext.strokePath()
+                
+                let plusRect = CGRect(x: 0, y: 0, width: 10, height: 10)
+                let plusPath = UIBezierPath()
+                plusPath.move(to: CGPoint(x: plusRect.midX, y: plusRect.minY))
+                plusPath.addLine(to: CGPoint(x: plusRect.midX, y: plusRect.maxY))
+                plusPath.move(to: CGPoint(x: plusRect.minX, y: plusRect.midY))
+                plusPath.addLine(to: CGPoint(x: plusRect.maxX, y: plusRect.midY))
+                UIColor.blue.setStroke()
+                plusPath.lineWidth = 2
+                let plusBounds = plusPath.bounds
+                let plusCenter = CGPoint(x: circleRect.midX - plusBounds.midX, y: circleRect.midY - plusBounds.midY)
+                plusPath.apply(CGAffineTransform(translationX: plusCenter.x, y: plusCenter.y))
+                plusPath.stroke()
+                
+                let image = UIImage(systemName: "plus")?.withTintColor(.blue)
+                let imageRect = CGRect(x: circleRect.midX - 8, y: circleRect.midY - 8, width: 16, height: 16)
+                image?.draw(in: imageRect)
+            }.withRenderingMode(.alwaysOriginal)
+            items[1].image = circleImage
+            // Diğer özellikleri ayarlayın
         }
     }
 
