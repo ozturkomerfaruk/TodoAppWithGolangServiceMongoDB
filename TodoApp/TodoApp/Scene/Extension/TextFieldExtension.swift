@@ -25,11 +25,4 @@ extension UITextField {
             rightView = outerView
         }
     }
-    
-    func datePicker<T>(target: T,
-                       doneAction: Selector,
-                       cancelAction: Selector,
-                       datePickerMode: UIDatePicker.Mode = .date) {
-        let screenWidth = UIScreen.main.bounds.width
-    }
 }

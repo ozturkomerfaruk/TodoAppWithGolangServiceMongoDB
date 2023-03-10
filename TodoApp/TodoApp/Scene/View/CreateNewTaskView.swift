@@ -19,7 +19,11 @@ final class CreateNewTaskView: UIViewController {
     @IBOutlet private weak var endTimeTextField: UITextField!
     @IBOutlet private weak var descriptionTextView: UITextView!
     
+    
+    
     private let datePicker = UIDatePicker()
+    private let toolbar = UIToolbar()
+    private var currentTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +32,7 @@ final class CreateNewTaskView: UIViewController {
     }
 }
 
-extension CreateNewTaskView {
+extension CreateNewTaskView: UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.tabBarController?.tabBar.isHidden = true
@@ -45,45 +49,58 @@ extension CreateNewTaskView {
     
     private func configureCreateNewTaskView() {
         dateTimeTextField.addPaddingAndIcon(UIImage(systemName: "calendar")!, padding: 40, isLeftView: false)
-        
-        let dateFormatter = DateFormatter() //Bir DateFormatter tanımladık.
-        dateFormatter.dateFormat = "dd-MM-yyyy" // Tarih formatımızın nasıl olacağını belirttik.
-        dateTimeTextField.text = dateFormatter.string(from: datePicker.date) // Tarihi stringe çevirerek label'a yazdırdık.
-        
-        createDatePicker()
+        createDatePicker(for: dateTimeTextField)
     }
     
-    func createDatePicker() {
-        
-        //DatePicker'da oluşan tarihi textfield'a kaydetmek için kullancağımız butonu koyacağımız barı oluşturuyoruz.
+    private func createDatePicker(for textField: UITextField) {
+        let datePicker = UIDatePicker()
         let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-        
-        //Barda bulunacak butonu oluşturduk.
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: nil, action: #selector(doneButtonClicked))
-        toolbar.setItems([doneButton], animated: true)
-        
-        //inputAccessoryView : Text field için sistem tarafından sunulan klavyeye aksesuar görünümü eklemek için kullanıyoruz. Bizde butonumuz için bir toolbar ekliyoruz.
-        dateTimeTextField.inputAccessoryView = toolbar
-        
-        //inputAccessoryView : Text field için sistem tarafından sunulan klavyenin yerini alacak bir görünüm eklemek için kullanıyoruz. Bizde klavye yerine datePicker kullanıyoruz.
-        dateTimeTextField.inputView = datePicker
-        
-        //DatePicker'ımızın modunu belirliyor. Tarih, saat, zamanlayıcı gibi.
         datePicker.datePickerMode = .date
+        datePicker.preferredDatePickerStyle = .wheels // wheel stili burada ayarlanıyor
+        textField.inputView = datePicker
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped))
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolbar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolbar.sizeToFit()
+        textField.inputAccessoryView = toolbar
+        
+        textField.placeholder = "Select a date"
+        textField.delegate = self // delegate ayarı yapıldı
     }
-    
-    @objc func doneButtonClicked() {
-        
-        //Yazdıracağımız tarihin formatını belirliyoruz.
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
-        
-        //Text field'a date picker'dan gelen değeri yazdırıyoruz.
-        dateTimeTextField.text = formatter.string(from: datePicker.date)
-        
-        //Done butonuna bastıktan sonra klavyemizin kapanacağını söylüyruz.
-        self.view.endEditing(true)
+
+    // DatePicker
+    @objc private func doneButtonTapped() {
+        guard let textField = currentTextField else { return }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        textField.text = dateFormatter.string(from: datePicker.date)
+        textField.resignFirstResponder()
+    }
+
+    // klavyeyi kapatır
+    @objc private func cancelButtonTapped() {
+        guard let textField = currentTextField else { return }
+        textField.resignFirstResponder()
+    }
+
+    // inputAccessoryView'ın frame'ini güncelleyerek toolbar'ın görünürlüğünü sağlar
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if let inputAccessoryView = currentTextField?.inputAccessoryView {
+            inputAccessoryView.frame.size.height = toolbar.frame.size.height
+        }
+    }
+
+    // tüm karakter değişikliklerini engeller
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return false
+    }
+
+    // UITextFieldDelegate metodu, herhangi bir textfield'a tıklandığında currentTextField özelliğini günceller
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        currentTextField = textField
+        return true
     }
 }
