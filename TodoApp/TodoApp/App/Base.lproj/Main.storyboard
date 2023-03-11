@@ -120,12 +120,31 @@
         <scene sceneID="wWL-nr-elG">
             <objects>
                 <viewController storyboardIdentifier="taskDetailView" id="gXs-UK-8lm" customClass="TaskDetailView" customModule="TodoApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="y0X-VE-v0E">
+                    <view key="view" contentMode="scaleToFill" id="1fj-Yq-EHc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Chy-qN-QOd"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <viewLayoutGuide key="safeArea" id="wzu-iR-Qc4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="ZY0-rt-ZMd">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="qAf-gE-N8k">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="JY0-Gq-Qwo">
+                                <rect key="frame" x="15.999999999999996" y="5" width="39.666666666666657" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" image="chevron.left" catalog="system"/>
+                                <connections>
+                                    <action selector="backButtonAction:" destination="Y8a-x2-4NI" eventType="touchUpInside" id="2NU-Pd-45m"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="backButtonOutlet" destination="JY0-Gq-Qwo" id="Ok7-qu-4IL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fa8-30-1xM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -140,9 +159,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppb-eB-EiN">
-                                <rect key="frame" x="16" y="59" width="82.666666666666671" height="34.333333333333343"/>
+                                <rect key="frame" x="15.999999999999996" y="59" width="39.666666666666657" height="34.333333333333343"/>
+                                <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" image="arrowshape.backward" catalog="system" title="Geri"/>
+                                <buttonConfiguration key="configuration" style="gray" image="chevron.left" catalog="system"/>
                                 <connections>
                                     <action selector="backButtonAction:" destination="Y8a-x2-4NI" eventType="touchUpInside" id="Unc-gL-lWw"/>
                                 </connections>
@@ -494,6 +514,7 @@
                         <outlet property="progressViewValueLabel" destination="KN3-7V-gdt" id="fpv-s5-AnW"/>
                         <outlet property="tableView" destination="Hon-oG-YxA" id="KIY-r8-mdV"/>
                         <outlet property="todaysProgressView" destination="Xy6-Dx-Lto" id="yTA-YB-W9f"/>
+                        <segue destination="gXs-UK-8lm" kind="show" identifier="toTaskDetailView" id="wac-5z-jMi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="492-rE-LrD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -502,7 +523,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowshape.backward" catalog="system" width="128" height="104"/>
+        <image name="chevron.left" catalog="system" width="97" height="128"/>
         <image name="homekit" catalog="system" width="128" height="104"/>
         <image name="onboarding" width="532" height="469"/>
         <image name="person" catalog="system" width="128" height="121"/>

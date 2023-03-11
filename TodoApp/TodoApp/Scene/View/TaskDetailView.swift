@@ -7,23 +7,25 @@
 
 import UIKit
 
-class TaskDetailView: UIViewController {
-
+final class TaskDetailView: UIViewController {
+    
+    
+    @IBOutlet weak var backButtonOutlet: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureTaskDetailView()
+    }
+}
 
-        // Do any additional setup after loading the view.
+extension TaskDetailView {
+    private func configureTaskDetailView() {
+        title = "Task Details"
+        backButtonOutlet.addTarget(self, action: #selector(pressed), for: .touchUpInside)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc private func pressed() {
+        navigationController?.popViewController(animated: true)
     }
-    */
-
 }
