@@ -7,110 +7,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "66962924-4FC0-4739-881D-CE0254A4C3DA"
+            uuid = "0C2694E2-596D-4801-8238-ED202D09B366"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TodoApp/Scene/View/HomePageView.swift"
+            filePath = "TodoApp/Scene/View/CreateNewTaskView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "configureHomePageView()"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "createDatePicker(for:with:placeholder:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0D93BA99-ACE6-4CDC-8856-83C2693C8B33"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TodoApp/Scene/View/Component/TabBarController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "10"
-            endingLineNumber = "10"
-            landmarkName = "TabBarController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "0D93BA99-ACE6-4CDC-8856-83C2693C8B33 - 9f398874306e9bcd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TodoApp.TabBarController.__allocating_init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; TodoApp.TabBarController"
-                  moduleName = "TodoApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ozturkomerfaruk/TodoAppWithGolangServiceMongoDB/TodoApp/TodoApp/Scene/View/Component/TabBarController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "28">
-               </Location>
-               <Location
-                  uuid = "0D93BA99-ACE6-4CDC-8856-83C2693C8B33 - db621fb0504bc8f8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TodoApp.TabBarController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; TodoApp.TabBarController"
-                  moduleName = "TodoApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ozturkomerfaruk/TodoAppWithGolangServiceMongoDB/TodoApp/TodoApp/Scene/View/Component/TabBarController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "10"
-                  endingLineNumber = "10"
-                  offsetFromSymbolStart = "256">
-               </Location>
-               <Location
-                  uuid = "0D93BA99-ACE6-4CDC-8856-83C2693C8B33 - 53faf6a2d471d188"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TodoApp.TabBarController.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;TodoApp.TabBarController&gt;"
-                  moduleName = "TodoApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ozturkomerfaruk/TodoAppWithGolangServiceMongoDB/TodoApp/TodoApp/Scene/View/Component/TabBarController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "20">
-               </Location>
-               <Location
-                  uuid = "0D93BA99-ACE6-4CDC-8856-83C2693C8B33 - d3e44ee7cc182534"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TodoApp.TabBarController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;TodoApp.TabBarController&gt;"
-                  moduleName = "TodoApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ozturkomerfaruk/TodoAppWithGolangServiceMongoDB/TodoApp/TodoApp/Scene/View/Component/TabBarController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "10"
-                  endingLineNumber = "10"
-                  offsetFromSymbolStart = "152">
-               </Location>
-               <Location
-                  uuid = "0D93BA99-ACE6-4CDC-8856-83C2693C8B33 - 5be32fb7025418a8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TodoApp.TabBarController.__deallocating_deinit"
-                  moduleName = "TodoApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ozturkomerfaruk/TodoAppWithGolangServiceMongoDB/TodoApp/TodoApp/Scene/View/Component/TabBarController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
