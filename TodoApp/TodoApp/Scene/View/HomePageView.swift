@@ -43,7 +43,7 @@ final class HomePageView: UIViewController {
 extension HomePageView {
     private func barButtonLeftItem() {
         let iconSize = CGSize(width: 30, height: 30)
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 30))
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         
         let tableViewIcon = makeBarButton(image: UIImage(systemName: "list.dash"), iconSize: iconSize)
         let collectionViewIcon = makeBarButton(image: UIImage(systemName: "square.grid.2x2"), iconSize: iconSize)
@@ -101,6 +101,12 @@ extension HomePageView {
         todaysProgressView.layer.masksToBounds = true
         progressViewValue.tintColor = .white
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       if let vc = segue.destination as? TaskDetailView {
+           print(vc.title ?? "nil")
+       }
+    }
 }
 
 extension HomePageView: UITableViewDelegate, UITableViewDataSource {
@@ -116,6 +122,10 @@ extension HomePageView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 67
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toTaskDetailView", sender: indexPath.row)
     }
 }
 
@@ -135,5 +145,9 @@ extension HomePageView: UICollectionViewDataSource, UICollectionViewDelegateFlow
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 208, height: 179)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toTaskDetailView", sender: indexPath.row)
     }
 }
