@@ -8,9 +8,12 @@
 import UIKit
 
 final class TaskDetailView: UIViewController {
-    
-    
-    @IBOutlet weak var backButtonOutlet: UIButton!
+    @IBOutlet private weak var backButtonOutlet: UIButton!
+    @IBOutlet private weak var categoryTitleLabel: UILabel!
+    @IBOutlet private weak var taskNameLabel: UILabel!
+    @IBOutlet private weak var fullDateLabel: UILabel!
+    @IBOutlet private weak var progressPercentLabel: UILabel!
+    @IBOutlet private weak var taskDescriptionTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
