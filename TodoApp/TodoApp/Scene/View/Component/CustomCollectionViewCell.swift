@@ -12,9 +12,9 @@ final class CustomCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var taskTitle: UILabel!
     @IBOutlet private weak var taskDate: UILabel!
     
-    func configureCustomTableViewCell() {
+    func configureCustomCollectionViewCell(model: TodoModel) {
         taskImageView.image = UIImage(systemName: "person")
-        taskTitle.text = "Web Development"
+        taskTitle.text = model.title
         taskDate.text = "09:00 AM - 11:00 AM"
     }
 }

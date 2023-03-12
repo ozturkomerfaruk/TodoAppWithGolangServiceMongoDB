@@ -8,6 +8,9 @@
 import UIKit
 
 final class TaskDetailView: UIViewController {
+    
+    var todoModel: TodoModel?
+    
     @IBOutlet private weak var backButtonOutlet: UIButton!
     @IBOutlet private weak var categoryTitleLabel: UILabel!
     @IBOutlet private weak var taskNameLabel: UILabel!
@@ -26,6 +29,9 @@ extension TaskDetailView {
     private func configureTaskDetailView() {
         title = "Task Details"
         backButtonOutlet.addTarget(self, action: #selector(pressed), for: .touchUpInside)
+        
+        taskNameLabel.text = todoModel?.title
+        taskDescriptionTextView.text = todoModel?.content
     }
     
     @objc private func pressed() {

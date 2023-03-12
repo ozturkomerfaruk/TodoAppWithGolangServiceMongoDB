@@ -18,14 +18,21 @@ final class HomePageView: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var collectionView: UICollectionView!
     
+    var viewModel = HomePageViewModel()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureHomePageView()
+       
     }
     
     private func configureHomePageView() {
+        viewModel.delegate = self
+        viewModel.fetchAllTodos()
+        print(viewModel.todos.count)
+        
         navigationItem.title = "Homepage"
         tabBarItem.title = ""
         barButtonLeftItem()
@@ -103,20 +110,22 @@ extension HomePageView {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       if let vc = segue.destination as? TaskDetailView {
-           print(vc.title ?? "nil")
-       }
+        if let vc = segue.destination as? TaskDetailView, let rowIndex = sender as? Int {
+            let indexPath = IndexPath(row: rowIndex, section: 0)
+            vc.todoModel = viewModel.todos[indexPath.row]
+        }
     }
 }
 
 extension HomePageView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        viewModel.todos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "customTableViewCell", for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
-        cell.configureCustomTableViewCell()
+        let model = viewModel.todos[indexPath.row]
+        cell.configureCustomTableViewCell(model: model)
         return cell
     }
     
@@ -132,16 +141,17 @@ extension HomePageView: UITableViewDelegate, UITableViewDataSource {
 
 extension HomePageView: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        5
+        viewModel.todos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customCollectionViewCell", for: indexPath) as? CustomCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.configureCustomTableViewCell()
+        let model = viewModel.todos[indexPath.row]
+        cell.configureCustomCollectionViewCell(model: model)
         return cell
-    }
+    }   
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 208, height: 179)
@@ -150,4 +160,20 @@ extension HomePageView: UICollectionViewDataSource, UICollectionViewDelegateFlow
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         performSegue(withIdentifier: "toTaskDetailView", sender: indexPath.row)
     }
+}
+
+extension HomePageView: HomePageViewModelDelegate {
+    func fetchLoaded() {
+        tableView.reloadData()
+        collectionView.reloadData()
+    }
+    
+    func fetchFailed(error: Error) {
+        print("Error fetching todos: \(error.localizedDescription)")
+    }
+    
+    func preFetch() {
+        print("pre fetch")
+    }
+    
 }
