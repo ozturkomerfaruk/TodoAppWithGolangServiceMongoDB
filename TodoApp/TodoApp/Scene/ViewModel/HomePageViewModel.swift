@@ -1,5 +1,5 @@
 //
-//  TodoViewModel.swift
+//  HomePageViewModel.swift
 //  TodoApp
 //
 //  Created by Ömer Faruk Öztürk on 6.03.2023.
@@ -8,29 +8,33 @@
 import Foundation
 
 protocol HomePageViewModelProtocol {
-    func fetchWeather(lat: Double, long: Double)
+    func fetchAllTodos()
 }
 
 protocol HomePageViewModelDelegate: AnyObject {
     func fetchLoaded()
+    func fetchFailed(error: Error)
+    func preFetch()
 }
 
-final class TodoViewModel {
+final class HomePageViewModel {
     weak var delegate: HomePageViewModelDelegate?
-    var todoModel: TodoModel?
+    var todos = [TodoModel]()
     
-    func denasdk() {
+    func fetchAllTodos() {
+        self.delegate?.preFetch()
         Client.getTodos { models, error in
             if let todos = models {
-                for todo in todos {
-                    if let title = todo.title {
-                        print(title)
-                    }
-                }
+                self.todos = todos
+                self.delegate?.fetchLoaded()
             } else {
-                print("Error fetching todos: \(error?.localizedDescription ?? "unknown error")")
+                self.delegate?.fetchFailed(error: error!)
             }
         }
+    }
+    
+    func denasdk() {
+        
         
         let parameters = [
             "title": "1231w2",
@@ -38,7 +42,7 @@ final class TodoViewModel {
         ]
         
         Client.postTodo(parameters: parameters)
-         
+        
         Client.deleteTodo(withId: "64042729873fb619b7bf6a40")
     }
 }

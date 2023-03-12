@@ -315,14 +315,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Box-ek-S3t">
-                                <rect key="frame" x="16" y="368.66666666666669" width="361" height="240.00000000000006"/>
+                                <rect key="frame" x="14" y="368.66666666666669" width="365" height="240.00000000000006"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="Uf9-5t-Std"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.  Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, uat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ex</string>
+                                <mutableString key="text">Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı Bu bir yazı </mutableString>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UI Design" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3O-3R-DqK">
@@ -341,7 +341,7 @@
                         <viewLayoutGuide key="safeArea" id="wzu-iR-Qc4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="wzu-iR-Qc4" firstAttribute="trailing" secondItem="Box-ek-S3t" secondAttribute="trailing" constant="16" id="0rJ-5H-dD8"/>
+                            <constraint firstItem="wzu-iR-Qc4" firstAttribute="trailing" secondItem="Box-ek-S3t" secondAttribute="trailing" constant="14" id="0rJ-5H-dD8"/>
                             <constraint firstItem="wzu-iR-Qc4" firstAttribute="trailing" secondItem="uVz-ls-cBr" secondAttribute="trailing" constant="16" id="2hN-eA-EwT"/>
                             <constraint firstItem="uVz-ls-cBr" firstAttribute="top" secondItem="pab-Xs-0NR" secondAttribute="bottom" constant="8" id="2ul-Yv-sRW"/>
                             <constraint firstItem="pab-Xs-0NR" firstAttribute="leading" secondItem="wzu-iR-Qc4" secondAttribute="leading" constant="16" id="9WE-0X-T8r"/>
@@ -363,7 +363,7 @@
                             <constraint firstItem="wzu-iR-Qc4" firstAttribute="trailing" secondItem="ifF-vt-mz5" secondAttribute="trailing" constant="16" id="kG7-1P-bnk"/>
                             <constraint firstItem="wzu-iR-Qc4" firstAttribute="trailing" secondItem="sXA-oF-Cf1" secondAttribute="trailing" constant="16" id="me0-6S-pph"/>
                             <constraint firstItem="w3O-3R-DqK" firstAttribute="leading" secondItem="wzu-iR-Qc4" secondAttribute="leading" constant="16" id="pz9-zJ-b8m"/>
-                            <constraint firstItem="Box-ek-S3t" firstAttribute="leading" secondItem="wzu-iR-Qc4" secondAttribute="leading" constant="16" id="uip-3w-yjw"/>
+                            <constraint firstItem="Box-ek-S3t" firstAttribute="leading" secondItem="wzu-iR-Qc4" secondAttribute="leading" constant="14" id="uip-3w-yjw"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
