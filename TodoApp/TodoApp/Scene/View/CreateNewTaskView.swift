@@ -22,8 +22,8 @@ final class CreateNewTaskView: UIViewController {
     @IBOutlet private weak var descriptionTextView: UITextView!
     
     
-    
-    private let datePicker = UIDatePicker()
+    private let datePickerDateTime = UIDatePicker()
+    private let datePickerTime = UIDatePicker()
     private let toolbar = UIToolbar()
     
     private var currentTextField: UITextField!
@@ -59,9 +59,9 @@ extension CreateNewTaskView: UITextFieldDelegate {
         startTimeTextField.addPaddingAndIcon(UIImage(systemName: "clock")!, padding: 40, isLeftView: false)
         endTimeTextField.addPaddingAndIcon(UIImage(systemName: "clock")!, padding: 40, isLeftView: false)
         
-        createDatePicker(for: dateTimeTextField, with: UIDatePicker(), placeholder: "Select a date")
-        createDatePicker(for: startTimeTextField, with: UIDatePicker(), placeholder: "Start time")
-        createDatePicker(for: endTimeTextField, with: UIDatePicker(), placeholder: "End time")
+        createDatePicker(for: dateTimeTextField, with: datePickerDateTime, placeholder: "Select a date")
+        createDatePicker(for: startTimeTextField, with: datePickerTime, placeholder: "Start time")
+        createDatePicker(for: endTimeTextField, with: datePickerTime, placeholder: "End time")
     }
     
     private func createDatePicker(for textField: UITextField, with datePicker: UIDatePicker, placeholder: String) {
@@ -92,11 +92,12 @@ extension CreateNewTaskView: UITextFieldDelegate {
         guard let textField = currentTextField else { return }
         let dateFormatter = DateFormatter()
         if textField == startTimeTextField || textField == endTimeTextField {
-            dateFormatter.dateStyle = .full
+            dateFormatter.dateStyle = .none
             dateFormatter.timeStyle = .short
-            let calendar = datePicker.calendar
-            let components = calendar!.dateComponents([.hour, .minute], from: datePicker.date)
+            let calendar = datePickerTime.calendar
+            let components = calendar!.dateComponents([.hour, .minute], from: datePickerTime.date)
             if let hour = components.hour, let minute = components.minute {
+                print("hour: \(hour), minute: \(minute)")
                 var timeString: String
                 if hour >= 12 {
                     if hour > 12 {
@@ -112,8 +113,9 @@ extension CreateNewTaskView: UITextFieldDelegate {
         } else {
             dateFormatter.dateStyle = .medium
             dateFormatter.timeStyle = .none
-            textField.text = dateFormatter.string(from: datePicker.date)
+            textField.text = dateFormatter.string(from: datePickerDateTime.date)
         }
+
         textField.resignFirstResponder()
     }
     
