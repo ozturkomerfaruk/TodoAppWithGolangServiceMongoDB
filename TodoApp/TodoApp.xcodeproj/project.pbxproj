@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		041ABC0C29BA4E5000F2F321 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041ABC0B29BA4E5000F2F321 /* TextFieldExtension.swift */; };
+		0428A05B29BF03A100B0694D /* CustomTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428A05929BF03A100B0694D /* CustomTaskCell.swift */; };
+		0428A05C29BF03A100B0694D /* CustomTaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0428A05A29BF03A100B0694D /* CustomTaskCell.xib */; };
 		044A409A29B59FBE000ECE9D /* HomePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A409929B59FBE000ECE9D /* HomePageViewModel.swift */; };
 		044F859229B7446600D5E6D1 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F859029B7446600D5E6D1 /* CustomTableViewCell.swift */; };
 		044F859329B7446600D5E6D1 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044F859129B7446600D5E6D1 /* CustomTableViewCell.xib */; };
@@ -51,6 +53,8 @@
 
 /* Begin PBXFileReference section */
 		041ABC0B29BA4E5000F2F321 /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
+		0428A05929BF03A100B0694D /* CustomTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTaskCell.swift; sourceTree = "<group>"; };
+		0428A05A29BF03A100B0694D /* CustomTaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTaskCell.xib; sourceTree = "<group>"; };
 		044A409929B59FBE000ECE9D /* HomePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewModel.swift; sourceTree = "<group>"; };
 		044F859029B7446600D5E6D1 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		044F859129B7446600D5E6D1 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
@@ -228,6 +232,8 @@
 				044F859129B7446600D5E6D1 /* CustomTableViewCell.xib */,
 				044F859429B7700A00D5E6D1 /* CustomCollectionViewCell.swift */,
 				044F859529B7700A00D5E6D1 /* CustomCollectionViewCell.xib */,
+				0428A05929BF03A100B0694D /* CustomTaskCell.swift */,
+				0428A05A29BF03A100B0694D /* CustomTaskCell.xib */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -346,6 +352,7 @@
 				04B3F7F829B5197F002CD493 /* Main.storyboard in Resources */,
 				044F859329B7446600D5E6D1 /* CustomTableViewCell.xib in Resources */,
 				044F859729B7700A00D5E6D1 /* CustomCollectionViewCell.xib in Resources */,
+				0428A05C29BF03A100B0694D /* CustomTaskCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +379,7 @@
 			files = (
 				04F1D47129B6FCF4005C3030 /* ProfilView.swift in Sources */,
 				044F859629B7700A00D5E6D1 /* CustomCollectionViewCell.swift in Sources */,
+				0428A05B29BF03A100B0694D /* CustomTaskCell.swift in Sources */,
 				04B3F7F529B5197F002CD493 /* OnboardingView.swift in Sources */,
 				041ABC0C29BA4E5000F2F321 /* TextFieldExtension.swift in Sources */,
 				04B3F82E29B51C11002CD493 /* TodoModel.swift in Sources */,
