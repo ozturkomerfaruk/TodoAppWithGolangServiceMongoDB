@@ -1,9 +1,14 @@
 package dto
 
+import "omerfarukozturk.com/backend/models"
+
 type TodoDTO struct {
-	Status bool `json:"status,omitempty"`
-	//Todo   models.Todo `json:"todo,omitempty"`
-	ID      string `json:"id,omitempty"`
-	Title   string `json:"title,omitempty"`
-	Content string `json:"content,omitempty"`
+	Status  int         `json:"status,omitempty"`
+	Message string      `json:"message,omitempty"`
+	Todo    models.Todo `json:"todo,omitempty"`
+}
+
+type TodoDeleteAllDTO struct {
+	Status  int    `json:"status,omitempty"`
+	Message string `json:"message,omitempty"`
 }

@@ -13,15 +13,15 @@ type TodoHandler struct {
 	Service services.TodoService
 }
 
-func (h TodoHandler) CreateTodo(c *fiber.Ctx) error {
+func (h TodoHandler) InsertTodo(c *fiber.Ctx) error {
 	var todo models.Todo
 	if err := c.BodyParser(&todo); err != nil {
 		return c.Status(http.StatusBadRequest).JSON(err.Error())
 	}
-
+	todo.ID = primitive.NewObjectID()
 	result, err := h.Service.TodoInsert(todo)
 
-	if err != nil || !result.Status {
+	if err != nil {
 		return err
 	}
 
@@ -46,4 +46,12 @@ func (h TodoHandler) DeleteTodo(c *fiber.Ctx) error {
 		return c.Status(http.StatusBadRequest).JSON(fiber.Map{"State": false})
 	}
 	return c.Status(http.StatusOK).JSON(fiber.Map{"State": true})
+}
+
+func (h TodoHandler) DeleteAllTodo(c *fiber.Ctx) error {
+	result, err := h.Service.TodoDeleteAll()
+	if err != nil || result.Status != 200 {
+		return c.Status(http.StatusInternalServerError).JSON(err.Error())
+	}
+	return c.Status(http.StatusOK).JSON(result)
 }

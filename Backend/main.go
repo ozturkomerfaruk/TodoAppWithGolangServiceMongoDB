@@ -23,9 +23,10 @@ func main() {
 
 	td := app.TodoHandler{Service: services.NewTodoService(TodoRepositoryDB)}
 
-	appRoute.Post("/api/todo", td.CreateTodo)
-	appRoute.Get("/api/todos", td.GetAllTodo)
+	appRoute.Post("/api/insert", td.InsertTodo)
+	appRoute.Get("/api/todoList", td.GetAllTodo)
 	appRoute.Delete("/api/todo/delete/:id", td.DeleteTodo)
-	
+	appRoute.Delete("/api/todo/deleteAll", td.DeleteAllTodo)
+
 	appRoute.Listen(":8080")
 }

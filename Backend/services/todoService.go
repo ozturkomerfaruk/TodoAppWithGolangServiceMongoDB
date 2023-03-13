@@ -1,6 +1,8 @@
 package services
 
 import (
+	"net/http"
+
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"omerfarukozturk.com/backend/dto"
 	"omerfarukozturk.com/backend/models"
@@ -16,30 +18,36 @@ type TodoService interface {
 	TodoInsert(todo models.Todo) (*dto.TodoDTO, error)
 	TodoGetAll() ([]models.Todo, error)
 	TodoDelete(id primitive.ObjectID) (bool, error)
+	TodoDeleteAll() (*dto.TodoDeleteAllDTO, error)
 }
 
 func (t DefaultTodoService) TodoInsert(todo models.Todo) (*dto.TodoDTO, error) {
 	var res dto.TodoDTO
 	if len(todo.Title) <= 2 {
-		res.Status = false
+		res.Status = http.StatusInternalServerError
 		return &res, nil
 	}
 
-	result, err := t.Repo.Insert(todo)
+	err := t.Repo.Insert(todo)
 
-	if err != nil || !result {
-		res.Status = false
+	if err != nil {
+		res.Status = http.StatusInternalServerError
 		return &res, err
 	}
 
 	res = dto.TodoDTO{
-		Status: true,
-		//Todo:   todo,
-		ID:      todo.ID.Hex(),
-		Title:   todo.Title,
-		Content: todo.Content,
+		Status:  http.StatusOK,
+		Message: "All todos deleted successfully",
+		Todo:    models.Todo{
+			ID: todo.ID,
+			Title: todo.Title,
+			Category: todo.Category,
+			Date: todo.Date,
+			StartTime: todo.StartTime,
+			EndTime: todo.EndTime,
+			Content: todo.Content,
+		},
 	}
-
 	return &res, nil
 }
 
@@ -57,6 +65,17 @@ func (t DefaultTodoService) TodoDelete(id primitive.ObjectID) (bool, error) {
 		return false, err
 	}
 	return true, nil
+}
+
+func (t DefaultTodoService) TodoDeleteAll() (*dto.TodoDeleteAllDTO, error) {
+	err := t.Repo.DeleteAll()
+	if err != nil {
+		return nil, err
+	}
+	return &dto.TodoDeleteAllDTO{
+		Status:  http.StatusOK,
+		Message: "All todos deleted successfully",
+	}, nil
 }
 
 func NewTodoService(Repo repository.TodoRepository) DefaultTodoService {
