@@ -13,15 +13,18 @@ enum EndPoints {
     case getTodos
     case postTodo
     case deleteTodo(String)
+    case deleteAll
     
     var stringValue: String {
         switch self {
         case .getTodos:
-            return EndPoints.baseUrl + "/api/todos"
+            return EndPoints.baseUrl + "/api/todoList"
         case .postTodo:
-            return EndPoints.baseUrl + "/api/todo"
+            return EndPoints.baseUrl + "/api/insert"
         case .deleteTodo(let id):
             return EndPoints.baseUrl + "/api/todo/delete/\(id)"
+        case .deleteAll:
+            return EndPoints.baseUrl + "/api/todo/deleteAll"
         }
     }
     

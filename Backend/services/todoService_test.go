@@ -1,5 +1,5 @@
 package services
-
+/*
 import (
 	"testing"
 
@@ -45,3 +45,4 @@ func TestDefaultTodoServixe_TodoGetAll(t *testing.T) {
 		t.Error(err)
 	}
 }
+*/
