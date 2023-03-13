@@ -12,4 +12,5 @@ type Todo struct {
 	StartTime string             `json:"startTime,omitempty"`
 	EndTime   string             `json:"endTime,omitempty"`
 	Content   string             `json:"content,omitempty"`
+	Progress  string             `json:"progress,omitempty"`
 }

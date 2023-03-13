@@ -67,10 +67,10 @@ func (mr *MockTodoServiceMockRecorder) TodoGetAll() *gomock.Call {
 }
 
 // TodoInsert mocks base method.
-func (m *MockTodoService) TodoInsert(arg0 models.Todo) (*dto.TodoDTO, error) {
+func (m *MockTodoService) TodoInsert(arg0 models.Todo) (*dto.TodoInsertDTO, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "TodoInsert", arg0)
-	ret0, _ := ret[0].(*dto.TodoDTO)
+	ret0, _ := ret[0].(*dto.TodoInsertDTO)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
