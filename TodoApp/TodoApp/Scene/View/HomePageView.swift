@@ -10,13 +10,11 @@ import UIKit
 final class HomePageView: UIViewController {
     
     private var isTableViewIcon = false
-    private let gradientLayer = CAGradientLayer()
     
-    @IBOutlet private weak var todaysProgressView: UIView!
-    @IBOutlet private weak var progressViewValue: UIView!
-    @IBOutlet private weak var progressViewValueLabel: UILabel!
+    
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var taskCollectionView: UICollectionView!
     
     var viewModel = HomePageViewModel()
     
@@ -25,7 +23,7 @@ final class HomePageView: UIViewController {
         super.viewDidLoad()
         
         configureHomePageView()
-       
+        
     }
     
     private func configureHomePageView() {
@@ -36,13 +34,18 @@ final class HomePageView: UIViewController {
         navigationItem.title = "Homepage"
         tabBarItem.title = ""
         barButtonLeftItem()
-        configureProgressValueView()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "customTableViewCell")
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "CustomCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "customCollectionViewCell")
+        
+        taskCollectionView.delegate = self
+        taskCollectionView.dataSource = self
+        taskCollectionView.register(UINib(nibName: "CustomTaskCell", bundle: nil), forCellWithReuseIdentifier: "customTaskCell")
+        taskCollectionView.showsHorizontalScrollIndicator = false // Yatay indicator'u gizle
     }
     
 }
@@ -94,21 +97,6 @@ extension HomePageView {
         collectionView.isHidden = isTableViewIcon ? false : true
     }
     
-    private func configureProgressValueView() {
-        
-        let startColor = UIColor(red: 76/255, green: 191/255, blue: 238/255, alpha: 1).cgColor
-        let endColor = UIColor(red: 26/255, green: 109/255, blue: 203/255, alpha: 1).cgColor
-        
-        gradientLayer.colors = [startColor, endColor]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
-        gradientLayer.frame = todaysProgressView.bounds
-        todaysProgressView.layer.insertSublayer(gradientLayer, at: 0)
-        todaysProgressView.layer.cornerRadius = 16
-        todaysProgressView.layer.masksToBounds = true
-        progressViewValue.tintColor = .white
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? TaskDetailView, let rowIndex = sender as? Int {
             let indexPath = IndexPath(row: rowIndex, section: 0)
@@ -141,24 +129,58 @@ extension HomePageView: UITableViewDelegate, UITableViewDataSource {
 
 extension HomePageView: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.todos.count
+        switch collectionView {
+        case self.collectionView:
+            return viewModel.todos.count
+        case self.taskCollectionView:
+            return 2
+        default:
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customCollectionViewCell", for: indexPath) as? CustomCollectionViewCell else {
+        
+        switch collectionView {
+        case self.collectionView:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customCollectionViewCell", for: indexPath) as? CustomCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            let model = viewModel.todos[indexPath.row]
+            cell.configureCustomCollectionViewCell(model: model)
+            return cell
+        case self.taskCollectionView:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customTaskCell", for: indexPath) as? CustomTaskCell else {
+                return UICollectionViewCell()
+            }
+            cell.configureCustomCell(count: "45 Tasks", percent: "40%")
+            return cell
+        default:
             return UICollectionViewCell()
         }
-        let model = viewModel.todos[indexPath.row]
-        cell.configureCustomCollectionViewCell(model: model)
-        return cell
-    }   
+        
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 208, height: 179)
+        switch collectionView {
+        case self.collectionView:
+            return CGSize(width: 208, height: 179)
+        case self.taskCollectionView:
+            return CGSize(width: 350, height: 120)
+        default:
+            return CGSize(width: 20, height: 20)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "toTaskDetailView", sender: indexPath.row)
+        switch collectionView {
+        case self.collectionView:
+            performSegue(withIdentifier: "toTaskDetailView", sender: indexPath.row)
+        case self.taskCollectionView:
+            print("asdkasd")
+        default:
+            print("default")
+        }
     }
 }
 
@@ -166,6 +188,7 @@ extension HomePageView: HomePageViewModelDelegate {
     func fetchLoaded() {
         tableView.reloadData()
         collectionView.reloadData()
+        taskCollectionView.reloadData()
     }
     
     func fetchFailed(error: Error) {
