@@ -8,6 +8,8 @@
 
 Burada amaç, bir markete yayımlanma kaygısı gütmeden ya da, olabilecek en az hata kaygısı gütmeden şekilde kodlar yazılmamıştır. Burada amaç tamamen yeni kavramlar öğrenmek olduğu için sürekli yeni şeyler deneme üzerinde durulmuştur. Ne iOS tarafında ne Go tarafında mükemmel ötesi kodlar bulamazsınız ancak son derece de elimden geldiğince yeni şeyleri, güzel bir ifadeyle kodları yazmaya çalıştım.
 
+Readme dosyasını okuduktan sonra aklınıza takılan detay kavramlar varsa, ya da sormak istediğiniz herhangi bir şey **iletisim@omerfarukozturk.com** mail adresine çekinmeden sorabilirsiniz. Gerekirse Discord, Zoom vs. girer bakarız tek tek.
+
 # Golang MongoDB Tarafı
 
 MongoDB kullanılarak Golang ile servisler yazılmıştır. Yazılan tüm servisler Postman aracılığıyla test edilerek yazılmıştır. Tüm servisler:
@@ -61,7 +63,7 @@ https://user-images.githubusercontent.com/56068905/229045615-3d7caaaf-6de2-45c7-
 * Ayrıca Detay ekranında güncelleme yapabilmek için sağ üst tarafta bulunan **Edit** butonuna tıklayarak güncelleme yapılmaktadır ve burada bulunan kategoriler kısmında, **Collection View** bulunmakta ve burada bulunan son **Cell** 'in bir buton olma özelliği bulunmaktadır. Bu buton sayesinde yeni kategori eklenebilmektedir.
 * Ana ekranda bulunan listede kullanıcı isterse hem TableView görünümü ile Todo'larına bakabilir hemde CollectionView ile bakabilir.
 
-**Not** Bu ekranlarda yapılabilecek çok fazla değişiklik bulunmakta. Örneğin en son CollectionView seçildikten sonra, UserDefault'a kaydederek kullanıcı tekrar uygulamaya girdiğinde de CollectionView'ı görebilmekte olur. Ancak amacım sadece yeni şeyler denemek olduğu için çok fazla değişiklik olmadan bırakıyorum uygulamayı.
+**Not:** Bu ekranlarda yapılabilecek çok fazla değişiklik bulunmakta. Örneğin en son CollectionView seçildikten sonra, UserDefault'a kaydederek kullanıcı tekrar uygulamaya girdiğinde de CollectionView'ı görebilmekte olur. Ancak amacım sadece yeni şeyler denemek olduğu için çok fazla değişiklik olmadan bırakıyorum uygulamayı.
 
 ## Profil
 
@@ -82,3 +84,21 @@ https://user-images.githubusercontent.com/56068905/229047306-3c5d66cb-4a8f-4f34-
 Kullanıcıya bir mail gönderilmekte. Bu gönderme işlemi Go da yapılmakta. Go da ayrıca bir HTML formatında yazdığım kod satırları ile mail'i göndermekteyim. Butona tıkladığında ise, bir deeplink çalışmakta. Bu deeplink'i SceneDelegate içerisinde yazdığım kod ile açmaktayım uygulamayı. Ardından Deeplink içerisinde bulunan mail ile kullanıcıya iOS tarafında ulaşabilmekteyim ve ekrana bir şifre sıfırlama ekranı açmaktayım. Kullanıcı yeni şifresini giriyor ve şifresi başarıyla sıfırlanmış olmakta.
 
 ## Kullanılan Kütüphaneler
+
+4 adet kütüphane kullandım.
+|Kütüphaneler|Açıklaması|
+|---|---|
+|Alamofire|Alamofire, Swift programlama dili için HTTP istekleri göndermek ve almak için kullanılan açık kaynaklı bir kütüphanedir.|
+|KeychainAccess|KeychainAccess, iOS uygulamaları için kullanıcı kimlik bilgileri, şifreler, anahtarlar ve diğer hassas verilerin güvenli bir şekilde depolanmasını sağlayan bir kütüphanedir.|
+|Lottie|Lottie, JSON biçiminde animasyonlar oluşturmayı ve bunları iOS, Android ve web uygulamalarına entegre etmeyi kolaylaştıran bir kütüphanedir.|
+|SwiftAlertView|SwiftAlertView, iOS uygulamaları için özelleştirilebilir ve kullanımı kolay bir bildirim mesajı görüntüleyicisi sağlayan açık kaynaklı bir kütüphanedir.|
+
+## Mimari Yapı
+
+Projede **Protocol Oriented MVVM** kullanılmıştır. Bunun en büyük sebebi Unit Test yazılması için böyle yapılmıştır. Ama valla sıkıldığım için yarıda bırakıyorum ancak Mock Unit Test nasıl yazılır eğer öğrenmek istiyorsanız benimle iletişime geçebilirsiniz. Çok basit bir yapısı var ancak burada yarıda bırakıyorum.
+
+## Sayfa Yapısı
+
+<img width="675" alt="image" src="https://user-images.githubusercontent.com/56068905/229049990-519e06de-8122-4ceb-b86f-393de7079977.png">
+
+Profil ekranında kullanıcı isterse kendi resmini profil resmi yapabilir. Ayrıca bu profil resmi MongoDB'ye de kaydedilmektedir. Binary'e dönüştürüp resmi kaydediyorum. Detaylar Go tarafında kodlarda mevcut. İsmini girerse, hitap edilmeye başlanabilir. Kullanıcı eğer isterse şifresini değiştirebilir, ayarlarda e-mail ekleyebilir ya da çıkış yapabilir.
