@@ -39,4 +39,42 @@ Kullanıcı giriş yaparken bir token üretmektedir ve hemen hemen bütün servi
 
 # iOS UIKit Tarafı
 
-Detaylı bir yazı yazacağım. Çok fazla sayfa tasarımı yapıldı. Projenin tamamlanmasını bekliyorum. 
+## Launch, Onboarding & Login
+
+https://user-images.githubusercontent.com/56068905/229043174-3d8bfd9a-2f07-4998-a5c1-fa75c6eae46b.mov
+
+* 3 saniye içerisinde otomatik atlanan bir launch screen bulunmaktadır. Burada Animasyonla alpha değeri 0'dan 1'e çıkan bir yazı ve bir de Lottie kullanılmaktadır. 
+* Ardından Onboarding Screen bulunmaktadır ki, bu uygulama tanıtım için tasarlanan bir ekrandır. Kullanıcı bir kez uygulamaya giriş yaptıktan sonra bir daha karşısına çıkmaz. 
+* Ardından Login ve Register bizi karşılamakta. Burada, ilk dikkati çeken husus, animasyonlu gradient kullanımıdır ve yuvarlak bir objenin yanıp sönme animasyonudur. Burada kullanıcı kayıt olur ardından giriş yapar. Giriş yaparken token uretilir ve bu token ile her yerde kullanılabilir. Bu token'ı Keychain Access ile tutuyorum ve servisde kullanıyorum. Ardından bir AlertView gösterimi var ve devamında diğer sayfaya giriş yapılıyor. Eğer kullanıcı adı ve şifresi yanlış girilirse uyarı vermekte.
+
+## Todo Listesi, Todo Ekleme
+
+https://user-images.githubusercontent.com/56068905/229044099-a3090921-0bfb-4cc6-91bd-6b14924cf914.mov
+
+https://user-images.githubusercontent.com/56068905/229045615-3d7caaaf-6de2-45c7-8933-9d18b9d12c96.mov
+
+* Todo'ların listelendiği bir ekran bulunmakta. Ancak todo'lar kullanıcıya özel olarak listelenmekte. Yani admin panelinden bakar gibi değilde kullanıcının sadece kendi kaydettiği Todo'lar bulunmakta. Ayrıca sayfanın yukarısında bu zamana kadar olan tüm todo'ların listesi bulunmakta. Diğer tarafında da, tarihte bugüne ait todoların listesi bulunmakta. Eğer hiçbir todo yoksa yüzde olarak 100 göstermekte yani tüm todolar yapılmış denilmekte.
+* Ardından Todo kaydetme ekranında; başlık, kategori seçme, tarih ve zaman seçme, içeriğini doldurma gibi seçenekler bulunmaktadır. Bir todo kaydedilirken ilk başta yüzdelik değeri 0 olmaktadır.
+* Daha sonra ana ekrana dönünce, yüzdelik değerler ve Todo sayısı ekranda yazmaktadır. Eğer listede bir Todo'ya girer ve yüzdelik değerini değiştirirsek, günlük ya da toplam yüzdelik değerimizde duruma göre değişmektedir.
+* Ayrıca Detay ekranında güncelleme yapabilmek için sağ üst tarafta bulunan **Edit** butonuna tıklayarak güncelleme yapılmaktadır ve burada bulunan kategoriler kısmında, **Collection View** bulunmakta ve burada bulunan son **Cell** 'in bir buton olma özelliği bulunmaktadır. Bu buton sayesinde yeni kategori eklenebilmektedir.
+* Ana ekranda bulunan listede kullanıcı isterse hem TableView görünümü ile Todo'larına bakabilir hemde CollectionView ile bakabilir.
+
+** Bu ekranlarda yapılabilecek çok fazla değişiklik bulunmakta. Örneğin en son CollectionView seçildikten sonra, UserDefault'a kaydederek kullanıcı tekrar uygulamaya girdiğinde de CollectionView'ı görebilmekte olur. Ancak amacım sadece yeni şeyler denemek olduğu için çok fazla değişiklik olmadan bırakıyorum uygulamayı.
+
+## Profil
+
+Profil ekranında kullanıcı isterse kendi resmini profil resmi yapabilir. Ayrıca bu profil resmi MongoDB'ye de kaydedilmektedir. Binary'e dönüştürüp resmi kaydediyorum. Detaylar Go tarafında kodlarda mevcut. İsmini girerse, hitap edilmeye başlanabilir. Kullanıcı eğer isterse şifresini değiştirebilir, ayarlarda e-mail ekleyebilir ya da çıkış yapabilir.
+
+## Ayarlar
+
+https://user-images.githubusercontent.com/56068905/229046076-85942b22-f9a7-4434-8be1-961604b6f182.mov
+
+Aslında benim amacım bu ayarlar tarafında çok fazla seçenekler eklemekti. Örneğin tema ayarlama, canlı dil değiştirme seçenekleri vs. Tüm bunlar çok hızlı bir şekilde yapılabilir ancak ben sıkıldığım için bırakıyorum uygulamayı :D Bu projede amacım daha çok MongoDB ile uğraşmak ve Go dilini öğrenmekti. Bu sayfada ise kullanıcı mail'ini eğer kaydederse, ve bir gün şifresini unutursa diye, şifre sıfırlama için bir mail göndermekteyim.
+
+## Deeplink & Şifre Sıfırlama
+
+https://user-images.githubusercontent.com/56068905/229047306-3c5d66cb-4a8f-4f34-8792-0eac26e1d6d6.mov
+
+Kullanıcıya bir mail gönderilmekte. Bu gönderme işlemi Go da yapılmakta. Go da ayrıca bir HTML formatında yazdığım kod satırları ile mail'i göndermekteyim. Butona tıkladığında ise, bir deeplink çalışmakta. Bu deeplink'i SceneDelegate içerisinde yazdığım kod ile açmaktayım uygulamayı. Ardından Deeplink içerisinde bulunan mail ile kullanıcıya iOS tarafında ulaşabilmekteyim ve ekrana bir şifre sıfırlama ekranı açmaktayım. Kullanıcı yeni şifresini giriyor ve şifresi başarıyla sıfırlanmış olmakta.
+
+## Kullanılan Kütüphaneler
