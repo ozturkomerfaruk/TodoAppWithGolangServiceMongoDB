@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ChangePasswordView: UIViewController {
+final class ChangePasswordView: BaseView {
     
     
     @IBOutlet private weak var profilImageView: UIImageView!
@@ -53,7 +53,7 @@ final class ChangePasswordView: UIViewController {
     
     @IBAction func changePasswordAction(_ sender: Any) {
         if oldPassword.text!.isEmpty || newPassword.text!.isEmpty || confirmPassword.text!.isEmpty {
-            print("Boş Olamaz!")
+            showAlert(title: "Warning!", message: "Cannot be empty!")
         } else {
             if newPassword.text == confirmPassword.text {
                 let parameter: [String : Any] = [
@@ -63,7 +63,7 @@ final class ChangePasswordView: UIViewController {
                 ]
                 self.viewModel.updateChangePassword(parameters: parameter)
             } else {
-                print("Şifreler eşleşmiyor.")
+                showAlert(title: "Warning!", message: "Passwords do not match!")
             }
         }
     }

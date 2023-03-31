@@ -57,7 +57,7 @@ final class ProfilViewViewModel {
                 self.userModel = model
                 self.delegate?.fetchLoaded()
             }
-        }
+        } 
     }
     
     func prevUploadModel(nameSurname: String, profilImage: String) {

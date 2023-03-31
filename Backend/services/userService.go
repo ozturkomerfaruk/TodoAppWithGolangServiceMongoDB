@@ -273,7 +273,7 @@ func (t DefaultUserService) UserUpdatePasswordByEmail(user models.PasswordUpdate
 	return &dto.PasswordUpdateModelDTO{
 		Status:  http.StatusOK,
 		Message: "Password Updated Successfully",
-	}, nil	
+	}, nil
 }
 
 func (t DefaultUserService) SendResetPasswordEmail(email string) (*dto.PasswordUpdateModelDTO, error) {
@@ -316,7 +316,7 @@ func (t DefaultUserService) SendResetPasswordEmail(email string) (*dto.PasswordU
 	m.SetHeader("Subject", "Hello!")
 	m.SetBody("text/html", body.String())
 
-	d := gomail.NewDialer("smtp.gmail.com", 587, "omerfarukozturk026@gmail.com", "Şifreme bakma lütfen :)")
+	d := gomail.NewDialer("smtp.gmail.com", 587, "omerfarukozturk026@gmail.com", "Şifreme bakma lütfen :))")
 
 	if err := d.DialAndSend(m); err != nil {
 		return &dto.PasswordUpdateModelDTO{

@@ -3,6 +3,8 @@ package repository
 import (
 	"context"
 	"errors"
+	"fmt"
+	"strings"
 	"time"
 
 	"go.mongodb.org/mongo-driver/bson"
@@ -58,6 +60,12 @@ func (t TodoRepositoryDB) GetAll(userId primitive.ObjectID) ([]models.Todo, int,
 		if err := result.Decode(&todo); err != nil {
 			return nil, 0, 0, 0, 0, err
 		}
+
+		normalizedDate, err := normalizeDateFormat(todo.Date)
+		if err != nil {
+			return nil, 0, 0, 0, 0, err
+		}
+		todo.Date = normalizedDate
 
 		todos = append(todos, todo)
 		sum += todo.Progress
@@ -149,4 +157,45 @@ func (t TodoRepositoryDB) Update(update models.Todo) error {
 
 func NewTodoRepositoryDb(dbClient *mongo.Collection) TodoRepositoryDB {
 	return TodoRepositoryDB{TodoCollection: dbClient}
+}
+
+//--
+
+func normalizeDateFormat(dateStr string) (string, error) {
+	dateFormats := []string{"Jan 02, 2006", "02 Jan 2006"}
+
+	dateStr = replaceTurkishMonthNames(dateStr) // Bu satırı ekleyin
+
+	for _, format := range dateFormats {
+		t, err := time.Parse(format, dateStr)
+		if err == nil {
+			return t.Format("Jan 02, 2006"), nil
+		}
+	}
+
+	fmt.Printf("Invalid date format: %s\n", dateStr)
+	return "", fmt.Errorf("invalid date format")
+}
+
+func replaceTurkishMonthNames(dateStr string) string {
+	monthReplacements := map[string]string{
+		"Oca": "Jan",
+		"Şub": "Feb",
+		"Mar": "Mar",
+		"Nis": "Apr",
+		"May": "May",
+		"Haz": "Jun",
+		"Tem": "Jul",
+		"Ağu": "Aug",
+		"Eyl": "Sep",
+		"Ek":  "Oct",
+		"Kas": "Nov",
+		"Ara": "Dec",
+	}
+
+	for turkishMonth, englishMonth := range monthReplacements {
+		dateStr = strings.Replace(dateStr, turkishMonth, englishMonth, -1)
+	}
+
+	return dateStr
 }

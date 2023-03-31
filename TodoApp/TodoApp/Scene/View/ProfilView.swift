@@ -66,7 +66,9 @@ extension ProfilView {
     }
     
     @objc private func pressedSettings() {
-        print("ayarlar ekranı")
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "settingsView") as? SettingsView else { return }
+        vc.model = viewModel.getUserDetail()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc private func pressedLogout() {
@@ -107,6 +109,7 @@ extension ProfilView: UITextFieldDelegate {
     // TextField içindeki değer değiştiğinde çağrılan fonksiyon
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         timer?.invalidate() // Eğer zamanlayıcı çalışıyorsa, iptal et
+        timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(updateUserDetails), userInfo: nil, repeats: false)
         return true
     }
     

@@ -10,6 +10,8 @@
 		0414110229C96E310065D32E /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 0414110129C96E310065D32E /* KeychainAccess */; };
 		0414110629C975520065D32E /* GenericClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414110529C975520065D32E /* GenericClient.swift */; };
 		041ABC0C29BA4E5000F2F321 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041ABC0B29BA4E5000F2F321 /* TextFieldExtension.swift */; };
+		041F760729D6A5FB00FDB2E1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F760629D6A5FB00FDB2E1 /* SettingsView.swift */; };
+		041F760929D6A61100FDB2E1 /* SettingsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F760829D6A61100FDB2E1 /* SettingsViewViewModel.swift */; };
 		0428A05B29BF03A100B0694D /* CustomTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428A05929BF03A100B0694D /* CustomTaskCell.swift */; };
 		0428A05C29BF03A100B0694D /* CustomTaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0428A05A29BF03A100B0694D /* CustomTaskCell.xib */; };
 		042FFC5729D413EF00B388CE /* DeeplinkNewPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFC5629D413EF00B388CE /* DeeplinkNewPasswordView.swift */; };
@@ -80,6 +82,8 @@
 /* Begin PBXFileReference section */
 		0414110529C975520065D32E /* GenericClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericClient.swift; sourceTree = "<group>"; };
 		041ABC0B29BA4E5000F2F321 /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
+		041F760629D6A5FB00FDB2E1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		041F760829D6A61100FDB2E1 /* SettingsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewViewModel.swift; sourceTree = "<group>"; };
 		0428A05929BF03A100B0694D /* CustomTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTaskCell.swift; sourceTree = "<group>"; };
 		0428A05A29BF03A100B0694D /* CustomTaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTaskCell.xib; sourceTree = "<group>"; };
 		042FFC5629D413EF00B388CE /* DeeplinkNewPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeeplinkNewPasswordView.swift; sourceTree = "<group>"; };
@@ -179,6 +183,7 @@
 				04601E6229D0E55800157430 /* ChangePasswordViewViewModel.swift */,
 				04721DBE29D172E800E714EC /* ForgotPasswordViewViewModel.swift */,
 				042FFC5829D4141800B388CE /* DeeplinkNewPasswordViewViewModel.swift */,
+				041F760829D6A61100FDB2E1 /* SettingsViewViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 				04CC71E529D08E3C008F37BA /* ChangePasswordView.swift */,
 				04CC71E729D0935F008F37BA /* ForgotPasswordView.swift */,
 				042FFC5629D413EF00B388CE /* DeeplinkNewPasswordView.swift */,
+				041F760629D6A5FB00FDB2E1 /* SettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -503,6 +509,7 @@
 				04CC71E629D08E3C008F37BA /* ChangePasswordView.swift in Sources */,
 				0464AC7629CB450A00FEFDA2 /* OnboardingManager.swift in Sources */,
 				041ABC0C29BA4E5000F2F321 /* TextFieldExtension.swift in Sources */,
+				041F760729D6A5FB00FDB2E1 /* SettingsView.swift in Sources */,
 				04B3F82E29B51C11002CD493 /* TodoBaseModelToList.swift in Sources */,
 				04F92DE929BFBA8800FF2C86 /* TodoTaskModel.swift in Sources */,
 				04F1D46C29B6FA74005C3030 /* CreateNewTaskView.swift in Sources */,
@@ -520,6 +527,7 @@
 				04D52C4529D5D7C300B0C436 /* BaseView.swift in Sources */,
 				044A409A29B59FBE000ECE9D /* HomePageViewModel.swift in Sources */,
 				04D8185329C8A14A0035DF94 /* UserLoginModel.swift in Sources */,
+				041F760929D6A61100FDB2E1 /* SettingsViewViewModel.swift in Sources */,
 				04F1D47629B7024F005C3030 /* TabBarController.swift in Sources */,
 				04F92DEB29BFBF2900FF2C86 /* CreateNewTaskViewViewModel.swift in Sources */,
 				0464AC6E29CB2E1000FEFDA2 /* LoginRegisterView.swift in Sources */,
