@@ -39,4 +39,4 @@ Kullanıcı giriş yaparken bir token üretmektedir ve hemen hemen bütün servi
 
 # iOS UIKit Tarafı
 
-Detaylı bir yazı yazacağım. Çok fazla sayfa tasarımı yapıldı. Projenin tamamlanmasını bekliyorum.
+Detaylı bir yazı yazacağım. Çok fazla sayfa tasarımı yapıldı. Projenin tamamlanmasını bekliyorum. 
