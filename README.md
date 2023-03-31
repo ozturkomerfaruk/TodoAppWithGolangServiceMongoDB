@@ -49,8 +49,10 @@ https://user-images.githubusercontent.com/56068905/229043174-3d8bfd9a-2f07-4998-
 
 ## Todo Listesi, Todo Ekleme
 
+### Part 1
 https://user-images.githubusercontent.com/56068905/229044099-a3090921-0bfb-4cc6-91bd-6b14924cf914.mov
 
+### Part 2
 https://user-images.githubusercontent.com/56068905/229045615-3d7caaaf-6de2-45c7-8933-9d18b9d12c96.mov
 
 * Todo'ların listelendiği bir ekran bulunmakta. Ancak todo'lar kullanıcıya özel olarak listelenmekte. Yani admin panelinden bakar gibi değilde kullanıcının sadece kendi kaydettiği Todo'lar bulunmakta. Ayrıca sayfanın yukarısında bu zamana kadar olan tüm todo'ların listesi bulunmakta. Diğer tarafında da, tarihte bugüne ait todoların listesi bulunmakta. Eğer hiçbir todo yoksa yüzde olarak 100 göstermekte yani tüm todolar yapılmış denilmekte.
@@ -59,9 +61,11 @@ https://user-images.githubusercontent.com/56068905/229045615-3d7caaaf-6de2-45c7-
 * Ayrıca Detay ekranında güncelleme yapabilmek için sağ üst tarafta bulunan **Edit** butonuna tıklayarak güncelleme yapılmaktadır ve burada bulunan kategoriler kısmında, **Collection View** bulunmakta ve burada bulunan son **Cell** 'in bir buton olma özelliği bulunmaktadır. Bu buton sayesinde yeni kategori eklenebilmektedir.
 * Ana ekranda bulunan listede kullanıcı isterse hem TableView görünümü ile Todo'larına bakabilir hemde CollectionView ile bakabilir.
 
-** Bu ekranlarda yapılabilecek çok fazla değişiklik bulunmakta. Örneğin en son CollectionView seçildikten sonra, UserDefault'a kaydederek kullanıcı tekrar uygulamaya girdiğinde de CollectionView'ı görebilmekte olur. Ancak amacım sadece yeni şeyler denemek olduğu için çok fazla değişiklik olmadan bırakıyorum uygulamayı.
+**Not** Bu ekranlarda yapılabilecek çok fazla değişiklik bulunmakta. Örneğin en son CollectionView seçildikten sonra, UserDefault'a kaydederek kullanıcı tekrar uygulamaya girdiğinde de CollectionView'ı görebilmekte olur. Ancak amacım sadece yeni şeyler denemek olduğu için çok fazla değişiklik olmadan bırakıyorum uygulamayı.
 
 ## Profil
+
+https://user-images.githubusercontent.com/56068905/229048603-2c50385f-ddf2-4254-b995-84d5c627ed47.mov
 
 Profil ekranında kullanıcı isterse kendi resmini profil resmi yapabilir. Ayrıca bu profil resmi MongoDB'ye de kaydedilmektedir. Binary'e dönüştürüp resmi kaydediyorum. Detaylar Go tarafında kodlarda mevcut. İsmini girerse, hitap edilmeye başlanabilir. Kullanıcı eğer isterse şifresini değiştirebilir, ayarlarda e-mail ekleyebilir ya da çıkış yapabilir.
 
