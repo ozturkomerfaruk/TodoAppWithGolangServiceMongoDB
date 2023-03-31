@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="customTaskCell" id="dBU-b5-Erb" customClass="CustomTaskCell" customModule="TodoApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="350" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="a8R-Ct-5wo">
+                <rect key="frame" x="0.0" y="0.0" width="350" height="120"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2SB-8p-uh5">
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="120"/>
+                        <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="A5z-7O-qFu">
+                                <rect key="frame" x="8" y="101" width="334" height="4"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="progressTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="trackTintColor" systemColor="systemGray2Color"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Progress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGz-e7-K3C">
+                                <rect key="frame" x="8" y="72" width="68" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-- Tasks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRo-MK-jIO">
+                                <rect key="frame" x="10" y="38" width="65.333333333333329" height="22"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" insetsLayoutMarginsFromSafeArea="NO" text="All Day's Progress Summery" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfu-D0-cQc">
+                                <rect key="frame" x="8" y="4" width="326" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IDh-1n-3MC">
+                                <rect key="frame" x="303" y="72" width="31" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cfu-D0-cQc" firstAttribute="leading" secondItem="2SB-8p-uh5" secondAttribute="leading" constant="8" id="2aV-dn-1Po"/>
+                            <constraint firstAttribute="trailing" secondItem="A5z-7O-qFu" secondAttribute="trailing" constant="8" id="2nG-Xm-wVC"/>
+                            <constraint firstAttribute="trailing" secondItem="IDh-1n-3MC" secondAttribute="trailing" constant="16" id="7nm-MZ-L9d"/>
+                            <constraint firstAttribute="trailing" secondItem="cfu-D0-cQc" secondAttribute="trailing" constant="16" id="9qH-C7-MmK"/>
+                            <constraint firstItem="A5z-7O-qFu" firstAttribute="top" secondItem="IDh-1n-3MC" secondAttribute="bottom" constant="8" id="JJg-Rl-Og7"/>
+                            <constraint firstItem="tRo-MK-jIO" firstAttribute="top" secondItem="cfu-D0-cQc" secondAttribute="bottom" constant="4" id="VKs-up-qPG"/>
+                            <constraint firstItem="A5z-7O-qFu" firstAttribute="leading" secondItem="2SB-8p-uh5" secondAttribute="leading" constant="8" id="VcP-qX-wHe"/>
+                            <constraint firstItem="JGz-e7-K3C" firstAttribute="top" secondItem="tRo-MK-jIO" secondAttribute="bottom" constant="12" id="Vma-fR-Ql4"/>
+                            <constraint firstAttribute="height" constant="120" id="Y6E-Jb-KrO"/>
+                            <constraint firstItem="tRo-MK-jIO" firstAttribute="leading" secondItem="2SB-8p-uh5" secondAttribute="leading" constant="10" id="gys-s4-U5p"/>
+                            <constraint firstItem="cfu-D0-cQc" firstAttribute="top" secondItem="2SB-8p-uh5" secondAttribute="top" constant="4" id="hjE-J8-FQI"/>
+                            <constraint firstItem="A5z-7O-qFu" firstAttribute="top" secondItem="JGz-e7-K3C" secondAttribute="bottom" constant="8" id="uah-Mg-EhU"/>
+                            <constraint firstItem="JGz-e7-K3C" firstAttribute="leading" secondItem="2SB-8p-uh5" secondAttribute="leading" constant="8" id="vlQ-AK-bUa"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="2SB-8p-uh5" secondAttribute="bottom" id="IpK-Xv-0Qw"/>
+                    <constraint firstItem="2SB-8p-uh5" firstAttribute="leading" secondItem="a8R-Ct-5wo" secondAttribute="leading" id="Rgv-tC-mBx"/>
+                    <constraint firstAttribute="trailing" secondItem="2SB-8p-uh5" secondAttribute="trailing" id="S92-tF-mz3"/>
+                    <constraint firstItem="2SB-8p-uh5" firstAttribute="top" secondItem="a8R-Ct-5wo" secondAttribute="top" id="lvU-fn-Nl3"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="87" height="62"/>
+            <connections>
+                <outlet property="progressView" destination="A5z-7O-qFu" id="z1E-ai-dgM"/>
+                <outlet property="progressViewPercentValueLabel" destination="IDh-1n-3MC" id="s5v-MI-Q2R"/>
+                <outlet property="taskCountLabel" destination="tRo-MK-jIO" id="Hv9-GK-pFA"/>
+                <outlet property="titleLabel" destination="cfu-D0-cQc" id="eU3-ax-5Va"/>
+                <outlet property="todaysProgressView" destination="2SB-8p-uh5" id="enY-hW-UOj"/>
+            </connections>
+            <point key="canvasLocation" x="198.47328244274809" y="2.8169014084507045"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

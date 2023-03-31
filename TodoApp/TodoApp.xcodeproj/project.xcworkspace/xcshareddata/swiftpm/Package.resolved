@@ -1,0 +1,41 @@
+{
+  "pins" : [
+    {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire.git",
+      "state" : {
+        "revision" : "78424be314842833c04bc3bef5b72e85fff99204",
+        "version" : "5.6.4"
+      }
+    },
+    {
+      "identity" : "keychainaccess",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kishikawakatsumi/KeychainAccess",
+      "state" : {
+        "branch" : "master",
+        "revision" : "ecb18d8ce4d88277cc4fb103973352d91e18c535"
+      }
+    },
+    {
+      "identity" : "lottie-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-ios.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "cc7b5c67189311fdaede48fcb18588d1ac1b4ff1"
+      }
+    },
+    {
+      "identity" : "swiftalertview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dinhquan/SwiftAlertView",
+      "state" : {
+        "branch" : "master",
+        "revision" : "501f3adf5e9663763b7eb8726740a74116cd9dfd"
+      }
+    }
+  ],
+  "version" : 2
+}
